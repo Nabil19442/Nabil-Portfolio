@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Mubashir | Full-Stack Developer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background: #020617;
+      color: #e5e7eb;
+      scroll-behavior: smooth;
+    }
+    .glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    .glow:hover {
+      box-shadow: 0 0 40px rgba(9, 216, 54, 0.25);
+      transform: translateY(-6px);
+    }
+  </style>
+
+<style>
+  .badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+  }
+  .source-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    background: #1e293b;
+    color: white;
+    font-weight: 600;
+  }
+  .source-btn:hover {
+    background: #334155;
+  }
+</style>
+
+</head>
+
+<body class="font-sans">
+
+<!-- NAVBAR -->
+<nav class="fixed w-full z-40 glass">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- LOGO -->
+    <span class="text-cyan-400 font-bold text-xl">nabil.dev</span>
+
+    <!-- DESKTOP MENU -->
+    <div class="hidden md:flex gap-8 text-slate-400 items-center">
+
+      <a href="#about" class="hover:text-cyan-400">About</a>
+      <a href="#skills" class="hover:text-cyan-400">Skills</a>
+
+      <!-- DESKTOP PROJECT DROPDOWN -->
+      <div class="relative">
+        <button id="projectBtnDesktop"
+          class="flex items-center gap-1 hover:text-cyan-400">
+          Projects
+          <i data-lucide="chevron-down" class="w-4 h-4"></i>
+        </button>
+
+        <div id="projectMenuDesktop"
+          class="hidden absolute top-10 right-0 glass rounded-xl w-64 p-2 shadow-xl">
+
+          <a href="#web-projects"
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800">
+            <i data-lucide="monitor" class="w-5 h-5 text-cyan-400"></i>
+            Web Projects
+          </a>
+
+          <a href="#console-projects"
+            class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800">
+            <i data-lucide="terminal" class="w-5 h-5 text-cyan-400"></i>
+            Console Based Projects
+          </a>
+        </div>
+      </div>
+
+      <a href="#resume" class="hover:text-cyan-400">Resume</a>
+      <a href="#contact" class="hover:text-cyan-400">Contact</a>
+    </div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn"
+      class="md:hidden text-cyan-400">
+      <i data-lucide="menu" class="w-7 h-7"></i>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+    class="hidden md:hidden glass border-t border-slate-800 px-6 py-6 space-y-6">
+
+    <a href="#about" class="block hover:text-cyan-400">About</a>
+    <a href="#skills" class="block hover:text-cyan-400">Skills</a>
+
+    <!-- MOBILE PROJECT DROPDOWN -->
+    <div>
+      <button id="projectBtnMobile"
+        class="flex justify-between w-full hover:text-cyan-400">
+        Projects
+        <i data-lucide="chevron-down"></i>
+      </button>
+
+      <div id="projectMenuMobile"
+        class="hidden mt-4 ml-4 space-y-3">
+
+        <a href="#web-projects"
+          class="block hover:text-cyan-400">
+          Web Projects
+        </a>
+
+        <a href="#console-projects"
+          class="block hover:text-cyan-400">
+          Console Based Projects
+        </a>
+      </div>
+    </div>
+
+    <a href="#resume" class="block hover:text-cyan-400">Resume</a>
+    <a href="#contact" class="block hover:text-cyan-400">Contact</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center pt-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+    <!-- LEFT -->
+    <div class="text-center md:text-left">
+      <p class="text-cyan-400 font-mono mb-3">Hello, I'm</p>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+        Nabil Mubashir
+      </h1>
+      <h2 class="text-2xl md:text-3xl text-slate-400 mb-6">
+        Full-Stack Developer
+      </h2>
+      <p class="text-slate-400 max-w-xl mx-auto md:mx-0 mb-8">
+        I connect design with logic to build complete web solutions.
+      </p>
+
+      <div class="flex justify-center md:justify-start gap-4">
+        <button onclick="openVideo()"
+                class="px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10 flex gap-2 items-center">
+          <i data-lucide="play-circle"></i> Video Resume
+        </button>
+
+        <a href="#contact"
+           class="px-8 py-3 bg-cyan-500 text-slate-900 rounded-lg font-bold hover:bg-cyan-400">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="relative flex justify-center">
+      <div class="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full"></div>
+      <img src="nabil.jpeg"
+           class="relative w-72 h-72 rounded-2xl object-cover border border-cyan-500/30 glow transition">
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24">
+  <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+    <h3 class="text-3xl font-bold text-cyan-400 mb-6">About Me</h3>
+    <p class="text-slate-400 max-w-3xl leading-relaxed mx-auto md:mx-0">
+      Full Stack Developer with hands-on experience in front-end and back-end
+      development. Proficient in designing, developing, and deploying web
+      applications with a strong problem-solving mindset.
+    </p>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-cyan-400 mb-12">Skills</h3>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12">
+        <p>Python</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-12 h-12">
+        <p>Java</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-12 h-12">
+        <p>HTML</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-12 h-12">
+        <p>Tailwind CSS</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-12 h-12">
+        <p>C</p>
+      </div>
+
+      <div class="glass p-6 rounded-2xl flex flex-col items-center gap-4 glow">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="w-12 h-12">
+        <p>C++</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--web-projects-->
+
+<section id="web-projects" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h3 class="text-3xl font-bold text-cyan-400 mb-12 flex items-center gap-3">
+      <i data-lucide="monitor"></i> Web Projects
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- PROJECT 1 -->
+      <div class="glass rounded-3xl border border-cyan-500/30 overflow-hidden project-card"
+            data-photo="logInCard.png"
+            data-video="demo1.mp4">
+
+        <!-- IMAGE AREA -->
+        <div class="relative group h-64 overflow-hidden">
+          <img src="logInCard.png"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+          <div class="absolute inset-0 bg-black/70 backdrop-blur
+                      opacity-0 group-hover:opacity-100
+                      flex flex-col items-center justify-center gap-4 transition">
+
+            <button class="photo-btn px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold">
+              View Photo
+            </button>
+
+            <button class="video-btn px-6 py-3 bg-white text-black rounded-xl font-semibold">
+              Play Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-6">
+          <h4 class="text-2xl font-bold text-cyan-400 mb-3">
+            Log-In-Card
+          </h4>
+
+          <div class="flex flex-wrap gap-2 mb-4 text-xs">
+            <span class="px-3 py-1 bg-slate-800 rounded-full">HTML</span>
+            <span class="px-3 py-1 bg-slate-800 rounded-full">TailwindCSS</span>
+          </div>
+
+          <a href="https://github.com/Nabil19442/Log-in-Card" target="_blank"
+             class="text-cyan-400 hover:text-cyan-300 flex items-center gap-2">
+            <i data-lucide="github"></i> Source Code
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="glass rounded-3xl border border-cyan-500/30 overflow-hidden project-card"
+            data-photo="eventlis.png"
+            data-video="eventVid.mp4">
+
+        <!-- IMAGE AREA -->
+        <div class="relative group h-64 overflow-hidden">
+          <img src="eventlis.png"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+          <div class="absolute inset-0 bg-black/70 backdrop-blur
+                      opacity-0 group-hover:opacity-100
+                      flex flex-col items-center justify-center gap-4 transition">
+
+            <button class="photo-btn px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold">
+              View Photo
+            </button>
+
+            <button class="video-btn px-6 py-3 bg-white text-black rounded-xl font-semibold">
+              Play Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-6">
+          <h4 class="text-2xl font-bold text-cyan-400 mb-3">
+            Random Color and Number
+          </h4>
+
+          <div class="flex flex-wrap gap-2 mb-4 text-xs">
+            <span class="px-3 py-1 bg-slate-800 rounded-full">HTML</span>
+            <span class="px-3 py-1 bg-slate-800 rounded-full">TailwindCSS</span>
+            <span class="px-3 py-1 bg-slate-800 rounded-full">JavaScript</span>
+          </div>
+
+          <a href="https://github.com/Nabil19442/EventListener-mini-project" target="_blank"
+             class="text-cyan-400 hover:text-cyan-300 flex items-center gap-2">
+            <i data-lucide="github"></i> Source Code
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="glass rounded-3xl border border-cyan-500/30 overflow-hidden project-card"
+            data-photo="tmrun.png"
+            data-video="tmrunvid.mp4">
+
+        <!-- IMAGE AREA -->
+        <div class="relative group h-64 overflow-hidden">
+          <img src="tmrun.png"
+               class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+          <div class="absolute inset-0 bg-black/70 backdrop-blur
+                      opacity-0 group-hover:opacity-100
+                      flex flex-col items-center justify-center gap-4 transition">
+
+            <button class="photo-btn px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold">
+              View Photo
+            </button>
+
+            <button class="video-btn px-6 py-3 bg-white text-black rounded-xl font-semibold">
+              Play Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="p-6">
+          <h4 class="text-2xl font-bold text-cyan-400 mb-3">
+            Temple Run Mini
+          </h4>
+
+          <div class="flex flex-wrap gap-2 mb-4 text-xs">
+            <span class="px-3 py-1 bg-slate-800 rounded-full">HTML</span>
+            <span class="px-3 py-1 bg-slate-800 rounded-full">TailwindCSS</span>
+            <span class="px-3 py-1 bg-slate-800 rounded-full">JavaScript</span>
+          </div>
+
+          <a href="https://github.com/Nabil19442/Temple-Run-" target="_blank"
+             class="text-cyan-400 hover:text-cyan-300 flex items-center gap-2">
+            <i data-lucide="github"></i> Source Code
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--Console Based-->
+<section id="console-projects" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h3 class="text-3xl font-bold text-cyan-400 mb-16 flex items-center gap-3">
+      <i data-lucide="terminal"></i> Console Based Projects
+    </h3>
+
+    <div class="space-y-20">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card glass rounded-[2rem] border border-cyan-500/30 p-10
+                  grid md:grid-cols-2 gap-12 items-start hover:border-cyan-500 hover:scale-100 transition"
+                  data-photo="url.webp"
+                  data-video="algo.mp4">
+
+        <!-- LEFT -->
+        <div class="space-y-6">
+
+          <!-- IMAGE -->
+        <div class="relative group rounded-2xl overflow-hidden">
+
+          <!-- IMAGE -->
+          <img src="url.webp"
+              class="w-full h-64 object-cover
+                      transition duration-500
+                      group-hover:scale-110" />
+
+          <!-- BLUR + DARK OVERLAY -->
+          <div
+            class="absolute inset-0 bg-black/40 backdrop-blur-sm
+                  opacity-0 group-hover:opacity-100
+                  transition duration-300
+                  flex items-center justify-center">
+
+            <!-- VIEW IMAGE BUTTON -->
+            <button type="button"
+              class="photo-btn px-8 py-3 bg-white text-slate-900
+                    rounded-full font-semibold
+                    flex items-center gap-2
+                    hover:bg-slate-200 transition">
+              <i data-lucide="external-link"></i>
+              View Image
+            </button>
+
+          </div>
+
+        </div>
+
+
+          <!-- WATCH -->
+          <button
+            class="video-btn w-full py-4 rounded-xl glass
+                   flex items-center justify-center gap-3
+                   text-cyan-400 font-semibold hover:scale-110">
+            <i data-lucide="play-circle"></i>
+            Watch Simulation
+          </button>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <h4 class="text-3xl font-extrabold text-cyan-400 mb-4">
+            High-Performance URL Shortener
+          </h4>
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap gap-3 mb-6 text-sm">
+            <span class="badge bg-cyan-700">C++</span>
+            <span class="badge">Hashing</span>
+            <span class="badge">Greedy Key Generation</span>
+          </div>
+
+          <!-- DESCRIPTION -->
+          <p class="text-slate-400 leading-relaxed mb-10">
+            High-Performance URL Shortener Engine developed a high-speed
+            URL mapping system utilizing a custom-implemented Hash Map
+            to achieve near O(1) retrieval times. Designed and implemented
+            a Greedy Algorithm for short-code generation that ensures
+            minimal key length through character reuse across a 62-character
+            alphabet. Handled data integrity through Separate Chaining
+            to resolve hash collisions and analyzed time complexity to
+            prove system scalability for high-traffic environments.
+          </p>
+
+          <!-- SOURCE -->
+          <a href="https://github.com/Nabil19442/URL-shortener---Algorithm-Project"
+             target="_blank"
+             class="inline-flex items-center gap-3 px-8 py-4
+                    rounded-xl bg-slate-800 hover:bg-white
+                    hover:text-black font-semibold transition">
+            <i data-lucide="github"></i>
+            View Source Code
+          </a>
+
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card glass rounded-[2rem] border border-cyan-500/30 p-10
+                  grid md:grid-cols-2 gap-12 items-start hover:border-cyan-500 hover:scale-100 transition"
+                  data-photo="hospital.jpg"
+                  data-video="ds.mp4">
+
+        <!-- LEFT -->
+        <div class="space-y-6">
+
+          <!-- IMAGE -->
+        <div class="relative group rounded-2xl overflow-hidden">
+
+          <!-- IMAGE -->
+          <img src="hospital.jpg"
+              class="w-full h-64 object-cover
+                      transition duration-500
+                      group-hover:scale-110" />
+
+          <!-- BLUR + DARK OVERLAY -->
+          <div
+            class="absolute inset-0 bg-black/40 backdrop-blur-sm
+                  opacity-0 group-hover:opacity-100
+                  transition duration-300
+                  flex items-center justify-center">
+
+            <!-- VIEW IMAGE BUTTON -->
+            <button type="button"
+              class="photo-btn px-8 py-3 bg-white text-slate-900
+                    rounded-full font-semibold
+                    flex items-center gap-2
+                    hover:bg-slate-200 transition">
+              <i data-lucide="external-link"></i>
+              View Image
+            </button>
+
+          </div>
+
+        </div>
+
+
+          <!-- WATCH -->
+          <button
+            class="video-btn w-full py-4 rounded-xl glass
+                   flex items-center justify-center gap-3
+                   text-cyan-400 font-semibold hover:scale-110">
+            <i data-lucide="play-circle"></i>
+            Watch Simulation
+          </button>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <h4 class="text-3xl font-extrabold text-cyan-400 mb-4">
+            Hospital Management System
+          </h4>
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap gap-3 mb-6 text-sm">
+            <span class="badge bg-cyan-700">C</span>
+            <span class="badge">Stack</span>
+            <span class="badge">Queue</span>
+            <span class="badge">Tree</span>
+            <span class="badge">Binary Tree</span>
+            <span class="badge">AVL Tree</span>
+          </div>
+
+          <!-- DESCRIPTION -->
+          <p class="text-slate-400 leading-relaxed mb-10">
+            A comprehensive console-based Hospital Management System developed using C programming language, focusing on real-world data structure applications and efficient patient handling. This project simulates how hospitals manage normal patients, emergency cases, doctors, and staff using optimized algorithms and structured data storage.
+
+The system prioritizes emergency patients using a Max-Heap, ensuring critical cases are handled first, while normal patients are managed through a queue (FIFO). Doctors are stored and managed using a Binary Search Tree (BST) for fast searching, insertion, and deletion. Hospital staff records are maintained using an AVL Tree, guaranteeing balanced and efficient operations.
+          </p>
+
+          <!-- SOURCE -->
+          <a href="https://github.com/Nabil19442/Data-Structure-Project."
+             target="_blank"
+             class="inline-flex items-center gap-3 px-8 py-4
+                    rounded-xl bg-slate-800 hover:bg-white
+                    hover:text-black font-semibold transition">
+            <i data-lucide="github"></i>
+            View Source Code
+          </a>
+
+        </div>
+      </div>
+
+      <!--Project 3 -->
+      <div class="project-card glass rounded-[2rem] border border-cyan-500/30 p-10
+                  grid md:grid-cols-2 gap-12 items-start hover:border-cyan-500 hover:scale-100 transition"
+                  data-photo="cricket.png"
+                  data-video="pps.mp4">
+
+        <!-- LEFT -->
+        <div class="space-y-6">
+
+          <!-- IMAGE -->
+        <div class="relative group rounded-2xl overflow-hidden">
+
+          <!-- IMAGE -->
+          <img src="cricket.png"
+              class="w-full h-64 object-cover
+                      transition duration-500
+                      group-hover:scale-110" />
+
+          <!-- BLUR + DARK OVERLAY -->
+          <div
+            class="absolute inset-0 bg-black/40 backdrop-blur-sm
+                  opacity-0 group-hover:opacity-100
+                  transition duration-300
+                  flex items-center justify-center">
+
+            <!-- VIEW IMAGE BUTTON -->
+            <button type="button"
+              class="photo-btn px-8 py-3 bg-white text-slate-900
+                    rounded-full font-semibold
+                    flex items-center gap-2
+                    hover:bg-slate-200 transition">
+              <i data-lucide="external-link"></i>
+              View Image
+            </button>
+
+          </div>
+
+        </div>
+
+
+          <!-- WATCH -->
+          <button
+            class="video-btn w-full py-4 rounded-xl glass
+                   flex items-center justify-center gap-3
+                   text-cyan-400 font-semibold hover:scale-110">
+            <i data-lucide="play-circle"></i>
+            Watch Simulation
+          </button>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <h4 class="text-3xl font-extrabold text-cyan-400 mb-4">
+            Cricket Player Management System
+          </h4>
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap gap-3 mb-6 text-sm">
+            <span class="badge bg-cyan-700">C</span>
+            <span class="badge">Structure</span>
+            <span class="badge">Sorting</span>
+            <span class="badge">Searching</span>
+            <span class="badge">File Handling</span>
+          </div>
+
+          <!-- DESCRIPTION -->
+          <p class="text-slate-400 leading-relaxed mb-10">
+            Cricket Players Performance Record System is a console-based management application developed using the C programming language. The main objective of this system is to efficiently manage and analyze the performance records of cricket players, including their name, role (Batsman, Bowler, or All-rounder), number of matches played, total runs scored, and wickets taken.
+
+The project uses structures and arrays to store player data and implements file handling to ensure data persistence by saving records in a text file. This allows the system to retain information even after the program is closed. The application supports all basic CRUD operations—Create, Read, Update, and Delete—making it a complete player management system.
+          </p>
+
+          <!-- SOURCE -->
+          <a href="https://github.com/Nabil19442/LAB-Project-_-Cricket-Team-Players-Performance-Record-System-"
+             target="_blank"
+             class="inline-flex items-center gap-3 px-8 py-4
+                    rounded-xl bg-slate-800 hover:bg-white
+                    hover:text-black font-semibold transition">
+            <i data-lucide="github"></i>
+            View Source Code
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- RESUME -->
+<section id="resume" class="py-24">
+  <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+    <h3 class="text-3xl font-bold text-cyan-400 mb-6">Resume</h3>
+    <p class="text-slate-400 mb-8 max-w-xl mx-auto md:mx-0">
+      Download or view my professional resume.
+    </p>
+
+    <div class="flex justify-center md:justify-start gap-4">
+      <a href="resume.pdf" target="_blank"
+         class="px-8 py-3 bg-cyan-500 text-slate-900 rounded-lg font-bold hover:bg-cyan-400">
+        View Resume
+      </a>
+
+      <a href="resume.pdf" download
+         class="px-8 py-3 border border-cyan-500 text-cyan-400 rounded-lg hover:bg-cyan-500/10">
+        Download PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<footer id="contact" class="relative bg-gradient-to-br from-[#020617] via-[#020617] to-[#020617] border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-start">
+
+    <!-- LEFT -->
+    <div>
+      <h3 class="text-4xl font-bold text-white mb-4">Let's Connect</h3>
+      <p class="text-slate-400 mb-12">
+        I connect design with logic to build complete web solutions.
+      </p>
+
+      <div class="space-y-8">
+
+        <!-- EMAIL -->
+        <div class="flex items-center gap-6">
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700 text-cyan-400">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs uppercase text-slate-500 font-bold">Email Me</p>
+            <a href="mailto:nabil@example.com"
+               class="text-lg text-white hover:text-cyan-400 transition">
+              nabillprof19@example.com
+            </a>
+          </div>
+        </div>
+
+        <!-- PHONE -->
+        <div class="flex items-center gap-6">
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700 text-cyan-400">
+            <i data-lucide="phone" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs uppercase text-slate-500 font-bold">Call / WhatsApp</p>
+            <a href="tel:+8801406791944"
+               class="text-lg text-white hover:text-cyan-400 transition">
+              +8801303436921 
+            </a>
+          </div>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="flex items-center gap-6">
+          <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700 text-cyan-400">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <p class="text-xs uppercase text-slate-500 font-bold">Location</p>
+            <p class="text-lg text-white">Dhaka, Bangladesh</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="glass rounded-3xl p-10 border border-slate-700">
+      <h4 class="text-2xl font-bold text-white mb-8">Social Profiles</h4>
+
+      <div class="flex flex-wrap gap-8 text-slate-300 text-3xl">
+
+        <a href="https://www.linkedin.com/in/nabil-mubashir/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110">
+          <i data-lucide="linkedin"></i>
+        </a>
+
+        <a href="https://github.com/Nabil19442" target="_blank" class="hover:text-white transition transform hover:scale-110">
+          <i data-lucide="github"></i>
+        </a>
+
+        <a href="https://wa.me/8801303436921" target="_blank"
+           class="hover:text-green-400 transition transform hover:scale-110">
+          <i data-lucide="message-circle"></i>
+        </a>
+
+        <a href="https://www.facebook.com/nabil.mubashir.21" target="_blank" class="hover:text-blue-500 transition transform hover:scale-110">
+          <i data-lucide="facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/nabil_mubashir/" target="_blank" class="hover:text-pink-500 transition transform hover:scale-110">
+          <i data-lucide="instagram"></i>
+        </a>
+
+        <a href="https://t.me/Nabil_Mubashir" target="_blank" class="hover:text-sky-400 transition transform hover:scale-110">
+          <i data-lucide="send"></i>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-center text-slate-600 text-sm pb-10">
+    © 2026 Developed by Nabil Mubashir.
+  </p>
+</footer>
+
+<!-- PHOTO MODAL -->
+<div id="photoModal"
+  class="hidden fixed inset-0 z-[999] bg-black/80 flex items-center justify-center p-6">
+  <div class="relative bg-slate-900 p-6 rounded-2xl max-w-lg w-full">
+    <button onclick="closePhoto()"
+      class="absolute top-3 right-3 w-9 h-9 rounded-full
+             bg-black/70 text-white hover:bg-red-500">
+      ✕
+    </button>
+    <img id="photoPreview" class="w-full rounded-xl border border-cyan-500">
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal"
+  class="hidden fixed inset-0 z-[999] bg-black/80 flex items-center justify-center p-6">
+  <div class="relative">
+    <button onclick="closeVideo()"
+      class="absolute -top-12 right-0 w-9 h-9 rounded-full
+             bg-black/70 text-white hover:bg-red-500">
+      ✕
+    </button>
+    <video id="videoPreview" controls
+      class="w-[360px] rounded-2xl border border-cyan-500 bg-black">
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+
+
+
+<!-- SCRIPTS -->
+<script>
+  lucide.createIcons();
+
+  const btn = document.getElementById("projectBtn");
+  const menu = document.getElementById("projectMenu");
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    menu.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", () => {
+    menu.classList.add("hidden");
+  });
+</script>
+
+<script>
+lucide.createIcons();
+
+/* MOBILE MENU */
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.onclick = () => {
+  mobileMenu.classList.toggle("hidden");
+};
+
+/* DESKTOP PROJECT DROPDOWN */
+const projectBtnDesktop = document.getElementById("projectBtnDesktop");
+const projectMenuDesktop = document.getElementById("projectMenuDesktop");
+
+projectBtnDesktop.onclick = (e) => {
+  e.stopPropagation();
+  projectMenuDesktop.classList.toggle("hidden");
+};
+
+document.addEventListener("click", () => {
+  projectMenuDesktop.classList.add("hidden");
+});
+
+/* MOBILE PROJECT DROPDOWN */
+const projectBtnMobile = document.getElementById("projectBtnMobile");
+const projectMenuMobile = document.getElementById("projectMenuMobile");
+
+projectBtnMobile.onclick = () => {
+  projectMenuMobile.classList.toggle("hidden");
+};
+</script>
+
+
+<script>
+const photoModal = document.getElementById("photoModal");
+const videoModal = document.getElementById("videoModal");
+const photoPreview = document.getElementById("photoPreview");
+const videoPreview = document.getElementById("videoPreview");
+
+/* OPEN */
+document.querySelectorAll(".project-card").forEach(card => {
+
+  card.querySelector(".photo-btn").onclick = () => {
+    photoPreview.src = card.dataset.photo;
+    photoModal.classList.remove("hidden");
+  };
+
+  card.querySelector(".video-btn").onclick = () => {
+    videoPreview.src = card.dataset.video;
+    videoModal.classList.remove("hidden");
+    videoPreview.play();
+  };
+
+});
+
+/* CLOSE */
+function closePhoto() {
+  photoModal.classList.add("hidden");
+  photoPreview.src = "";
+}
+
+function closeVideo() {
+  videoPreview.pause();
+  videoPreview.currentTime = 0;
+  videoPreview.src = "";
+  videoModal.classList.add("hidden");
+}
+
+/* CLICK OUTSIDE TO CLOSE */
+photoModal.addEventListener("click", e => {
+  if (e.target === photoModal) closePhoto();
+});
+
+videoModal.addEventListener("click", e => {
+  if (e.target === videoModal) closeVideo();
+});
+
+/* ESC KEY CLOSE */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closePhoto();
+    closeVideo();
+  }
+});
+</script>
+
+
+
+</body>
+</html>
